@@ -26,102 +26,213 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 <h2>Installation Steps</h2>
 
 <p>
-<img src="https://imgur.com/qXWOfvq.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<img src="https://imgur.com/egJMdgS.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Create a "Virtual Machine" with Azure to run this lab. "Remote Desktop" into the created VM. 
-</p>
-<br />
+<h3>Step 1: Connect to Your Virtual Machine with Remote Desktop</h3>
 
-<p>
-<img src="https://imgur.com/n9ibcLa.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Install/Enable Internet "Internet Information Services" (IIS) in windows: control panel --> programs --> Turn Windows features on or off --> check box titled "Internet Information Services".  IIS is a windows server in which OsTicket requires to be enabled in order to run properly, even though OsTicket runs through the web browser.
-</p>
-<br />
+- If you need help connecting to your virtual machine, please see my tutorial [here](https://github.com/roslyndwilliams/virtual-machine)
 
-<p>
-<img src="https://imgur.com/YBPThz1.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<img src="https://imgur.com/OjPupsw.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Search the internet for the installation files you will need to insatll. Find and install: "Web Platform Installer" & open "Web Platform Installer". Search Web Platform Installer to add "MySQL 5.5" & search to add all simple versions of PHP (x86) up until 7.3. "Create username" and "password" when asked to finish installation. Web installer will attempt to finish installing all of the prerequistes that are checked (some of the downloads will fail, just manually download C++ redistribuable & PHP Manager via files found online). Continue to finish with installation. Find and install "PHP Manager" version 7.3.8 & version 1.5.0. 
-</p>
-<br />
+<h3>Step 2: Install and Enable Internet Information Services (IIS) in Windows</h3>
 
-<p>
-<img src="https://imgur.com/t2OkA7p.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Search the internet for "osTicket-v1.15.8" and download it. Next, copy the "upload folder" from inside the OsTicket installation files to "c:\inetpub\wwwroot". Within c:\inetput\wwwroot folder --> rename "upload folder" to "OsTicket" --> Open IIS--> osTicket--> Browse*80 --> restart IIS
-</p>
-<br />
+- At the bottom left, search for Control Panel
+- Underneath Programs, select Uninstall a Program
+- On the left side of the screen, select Turn Windows Features On or Off
+- Select Internet Information Services (IIS), and select OK
 
-<p>
-<img src="https://imgur.com/KL5FPaL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Search and open "IIS program" again via windows search bar. Next, restart IIS server client for changes to take effect.  
-</p>
-<br />
 
-<p>
-<img src="https://imgur.com/AKPxXsc.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p align="center">
+<img src="https://i.imgur.com/NbQvYeL.png.png" height="80%" width="80%" alt="Azure Free Account"/> 
 </p>
-<p>
-After IIS restart --> select "OsTicket" within IIS under "Default Website" --> click Browse*:80. 
-</p>
-<br />
 
-<p>
-<img src="https://imgur.com/OdzWcn5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-If you have installed all prerequisites and followed all steps up to this point correctly, then the OS Ticketing system should open in the browser after the "browser*:80 port" is clicked in the previous step. 
-</p>
-<br />
 
-<p>
-<img src="https://imgur.com/kjIMvoQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<img src="https://imgur.com/Yw6c5gd.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Click the "PHP Manager" option in ISS (If the option does not show then restart ISS) --> "Enable or disable an extension" --> enable the following extensins: "php_imap.dll, php_intl.dll, php_opcahe.dll" --> refresh OsTicket in the browser window.
-</p>
-<br />
+<h3>Step 3: Download, Install, and Open the Web Platform Installer
+</h3>
 
-<p>
-<img src="https://imgur.com/e0Qis8c.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<img src="https://imgur.com/INrk5kt.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Rename "C:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php" to "C:\inetpub\wwwroot\osTicket\include\ost-config.php" --> Assign permissions: under security tab --> click advanced --> disable inheritance: remove all inheritance --> allow all permisions: click "add", select a "principal", enter "everyone" in object name field --> allow full control permissions. This will allow full control for everyone. 
-</p>
-<br />
+- osTicket Installation Files [link](https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6)
+	- Download Web Platform Installer > select Download Anyway > at the top right, select Open File
+	- Follow the prompt to install Web Platform Installer
+	- Open the Web Platform Installer
 
-<p>
-<img src="https://imgur.com/4SxPW2u.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p align="center">
+<img src="https://i.imgur.com/0On2vKd.png" height="80%" width="80%" alt="Azure Free Account"/> <img src="https://i.imgur.com/V4p94mP.png" height="80%" width="80%" alt="Azure Free Services"/>
 </p>
-<p>
-After all previous steps are complete, the OsTicketing system should be fully functional and you should be allowed to create acual helpdesk tickets. Please see test ticket above. You have to fill out most, if not all, of the information for this setup. *The email address must be different for the system settings and the admin user to not create conflict. 
-</p>
-<br />
 
-<p>
-<img src="https://imgur.com/iecoXP0.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Install a program called "HeidiSQl" (can be searched online) that OsTicketing System uses to connect with Databases. Create a new "database" to be used with the new ticketing setup titled "OsTicket". Now, finish filling out the information in the OsTicket browser (MySQL will be the new database's name) and use whichever username and password that you created earlier in the lab. 
-</p>
-<br />
+- Once Web Platform Installer is open, go to the top right of the screen and search for MySQL 5.5
+- Go to MySQL Windows 5.5 and click Add
+- Go to the top right again and search for PHP
+	- Adjust the list to Sort by "name"
+- Add all simple versions of x86 PHP up until 7.3
+- Select Install at the bottom of the screen and it will tell you to create a username and password to complete the installation
 
-<p>
-<img src="https://imgur.com/Dm38qAa.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<img src="https://imgur.com/Vg67uNm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<p align="center">
+<img src="https://i.imgur.com/uWAVcRG.png" height="80%" width="80%" alt="Azure Free Account"/> <img src="https://i.imgur.com/MQmZfht.png" height="80%" width="80%" alt="Azure Free Services"/>
 </p>
-<p>
-You should see a congratulations screen in the browser window if everything was done correctly. Clients are now able to successfully create help desk tickets. That concludes the lab.
+
+
+  - Username: root
+  - Password: Password1
+- Follow the prompt to complete the installation
+- You might get a message stating that "some products have failed to install"
+	- Ignore that message and select Finish
+- Download and install the following from within the lab files: [link](https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6)
+  - PHP Version 7.3.8
+  - PHP Manager 1.5.0 for IIS 10
+  - Microsoft Visual C++ 2009 Redistributable Package
+
+
+<p align="center">
+<img src="https://i.imgur.com/zAPFRmU.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/DUiyQdt.png" height="70%" width="70%" alt="Azure Free Services"/>
 </p>
-<br />
+
+
+<h3>Step 4: Install osTicket v1.15.8</h3>
+     
+- Download osTicket (download from within lab files: [link](https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6))
+- Right-click on the file and select Extract All
+	- Open the new osTicket folder
+		- Copy the Upload folder into C:\inetpub\wwwroot
+		- Rename “Upload” to “osTicket”
+
+
+<p align="center">
+<img src="https://i.imgur.com/BpL8IJE.png" height="80%" width="80%" alt="Azure Free Account"/> <img src="https://i.imgur.com/xSJD7yk.png" height="80%" width="80%" alt="Azure Free Services"/>
+</p>
+ 
+     
+
+<h3>Step 5: Restart the IIS Server
+</h3>
+
+- Search for Internet Information Services (IIS) and select Open
+	- Select Restart on the right-hand side 
+- On the left side of the screen, select Virtualmachine > Sites > Default Website > osTicket
+- On the right side of the screen, click “Browse *:80”
+	- This should open osTicket in your web browser
+- Before continuing, head back to IIS
+- Open IIS
+
+
+<p align="center">
+<img src="https://i.imgur.com/OpBkwwj.png" height="80%" width="80%" alt="Azure Free Account"/> <img src="https://i.imgur.com/XNVSNia.png" height="80%" width="80%" alt="Azure Free Services"/>
+</p>
+
+<h3>Step 6: Enable Extensions in IIS
+</h3>
+
+- Go back to IIS > Sites > Default Web Site > osTicket
+- Double-click PHP Manager
+- Click “Enable or Disable an Extension” at the bottom of the screen under PHP Extensions
+- Right-click and enable the following
+    - php_imap.dll (Might be already enabled)
+    - php_intl.dll
+    - php_opcache.dll
+
+ 
+     
+ <p align="center">
+<img src="https://i.imgur.com/GQfPOU8.png" height="80%" width="80%" alt="Azure Free Account"/> <img src="https://i.imgur.com/iCK6vst.png" height="80%" width="80%" alt="Azure Free Services"/>
+</p>
+
+<h3>Step 7: Refresh the osTicket Site in Your Browser
+</h3>
+
+- Refresh the osTicket site adn observe the change
+	- Intl Extension should now have a green checkmark next to it
+
+
+<p align="center">
+<img src="https://i.imgur.com/ByfN2Fd.png" height="80%" width="80%" alt="Azure Free Account"/>
+
+
+
+<h3>Step 8: Rename</h3>
+ 
+- Open Windows Explorer and select C: > inetpub > wwwroot > osTicket > include
+	- Rename the following file:
+		- From: ost-SAMPLEconfig.php
+		- To: ost-config.php
+
+
+<p align="center">
+<img src="https://i.imgur.com/DDTR8CD.png" height="80%" width="80%" alt="Azure Free Account"/>
+
+<h3>Step 9: Assign Permissions to ost-config.php</h3>
+
+- Right-click ost-config.php 
+- Open Properties > Security > Advanced > Permissions 
+- Select Disable Inheritance > Remove all inherited permissions from this object 
+
+<p align="center">
+<img src="https://i.imgur.com/pcFvK9d.png" height="80%" width="80%" alt="Azure Free Account"/>
+
+- Afterwards, select Add > select Principal > type in "everyone" > select Check Names > select OK
+	- Allow everyone full control (check all boxes) > Select apply > OK
+
+<p align="center">
+<img src="https://i.imgur.com/vUlpzTb.png" height="70%" width=70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/WZrk1F7.png" height="80%" width="80%" alt="Azure Free Services"/>
+</p>
+
+  
+<h3>Step 10: Continue Setting Up osTicket in Browser</h3>
+
+- Go back to the browser and click Continue
+  - Name: Helpdesk
+  - Email: whichever email you want
+  - First Name: your first name
+  - Last Name: your last name
+  - Email Address: whichever email you want (needs to be different from the Helpdesk's default email)
+  - Username: user_admin 
+  - Password: Password1 
+  
+<p align="center">
+<img src="https://i.imgur.com/1GfpPLs.png" height="80%" width="80%" alt="Azure Free Account"/>
+
+<h3>Step 11: Download and Install HeidiSQL</h3>
+
+- Head to osTicket Installation Files [link](https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6)
+	- Download and install HeidiSQL
+- Open HeidiSQL > Select "New" at the bottom-left corner of the screen
+   - User: root
+   - Password: Password
+- Select Open
+- On the left side, right-click Unnamed > select Create New > Database
+- Name it “osTicket” and select OK
+
+ <p align="center">
+<img src="https://i.imgur.com/mDBWQ5k.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/ADJYQyB.png" height="70%" width="70%" alt="Azure Free Services"/>
+</p>
+
+<h3>Step 12: Continue Setting Up osTicket by Filling Out the Fields</h3>
+
+- Go back to the browser
+	- MySQL Database: osTicket (the one you just created in HeidiSQL)
+	- MySQL Username: root
+	- MySQL Password: Password1
+	- Finally, click Install Now
+
+<p align="center">
+<img src="https://i.imgur.com/Npqj9Us.png" height="80%" width="80%" alt="Azure Free Account"/>
+
+
+🎉Congratulations! You have sucessfully installed osTicket adn all of its pre-requisite files!🎉
+
+<p align="center">
+<img src="https://i.imgur.com/F52ypHn.png" height="80%" width="80%" alt="Azure Free Account"/>
+
+<h3>Tips!</h3>
+
+- To create tickets as a user: http://localhost/osTicket/
+- To log in as an Admin or helpdesk professional: http://localhost/osTicket/scp
+
+<h3>Step 13: Post-Intallation Cleanup</h3>
+
+- Go to C: > inetpub > wwwroot > osTicket > Setup
+    - Delete the contents in the Setup folder
+    - Afterwards, delete the Setup folder
+- Go to C: > Inetpub > wwwroot > osTicket > Include
+    - Right-click on ost-config.php 
+    - Select Securities > Advanced > Click on "everyone" > edit to change permissions
+	- Allow everyone to only have "Read and execute" permission, then select OK > Apply > OK
+	
+ <p align="center">
+<img src="https://i.imgur.com/wucT3UN.png" height="70%" width="70%" alt="Azure Free Account"/> <img src="https://i.imgur.com/cPSx6VL.png" height="70%" width="70%" alt="Azure Free Services"/>
+</p>	
+
